@@ -1,0 +1,138 @@
+//PORT FROM 1->512
+void readport(unsigned int port)
+{
+  id_card = (port-1)/64;
+  id_ic = ((port-1)%64)/16;
+  id_pin = (((port-1)%64)%16)+1;
+  switch (id_card){
+    case 0: 
+      switch(id_ic){
+        case 0: chip1.digitalRead(id_pin);
+                 break;
+        case 1: chip2.digitalRead(id_pin);
+                 break;
+        case 2: chip3.digitalRead(id_pin);
+                 break;
+        case 3: chip4.digitalRead(id_pin);
+                break;
+
+      default:
+         break;
+        }
+     break;   
+    case 1:
+      switch(id_ic){
+      case 0: chip5.digitalRead(id_pin);
+               break;
+      case 1: chip6.digitalRead(id_pin);
+               break;
+      case 2: chip7.digitalRead(id_pin);
+               break;
+      case 3: chip8.digitalRead(id_pin);
+         break;
+      default:
+         break;    
+    }
+    break;
+    case 2:
+      switch(id_ic){
+      case 0: chip9.digitalRead(id_pin);
+               break;
+      case 1: chip10.digitalRead(id_pin);
+               break;
+      case 2: chip11.digitalRead(id_pin);
+               break;
+      case 3: chip12.digitalRead(id_pin);
+         break;
+        default:
+         break;    
+    }
+    break;
+    case 3:
+      switch(id_ic){
+      case 0: chip13.digitalRead(id_pin);
+               break;
+      case 1: chip14.digitalRead(id_pin);
+               break;
+      case 2: chip15.digitalRead(id_pin);
+               break;
+      case 3: chip16.digitalRead(id_pin);
+         break;   
+    
+    
+        default:
+         break;    
+    } 
+    break;
+    case 4:
+      switch(id_ic){
+      case 0: chip17.digitalRead(id_pin);
+               break;
+      case 1: chip18.digitalRead(id_pin);
+               break;
+      case 2: chip19.digitalRead(id_pin);
+               break;
+      case 3: chip20.digitalRead(id_pin);
+         break;  
+    
+    
+        default:
+         break;    
+    } 
+    break;
+    case 5:
+      switch(id_ic){
+      case 0: chip21.digitalRead(id_pin);
+               break;
+      case 1: chip22.digitalRead(id_pin);
+               break;
+      case 2: chip23.digitalRead(id_pin);
+               break;
+      case 3: chip24.digitalRead(id_pin);
+         break;   
+    
+    
+        default:
+         break;    
+    }
+    break;
+    case 6:
+      switch(id_ic){
+      case 0: chip25.digitalRead(id_pin);
+               break;
+      case 1: chip26.digitalRead(id_pin);
+               break;
+      case 2: chip27.digitalRead(id_pin);
+               break;
+      case 3: chip28.digitalRead(id_pin);
+         break;
+    
+    
+    
+        default:
+         break;    
+    }
+    break;
+    case 7:
+      switch(id_ic){
+      case 0: chip29.digitalRead(id_pin);
+               break;
+      case 1: chip30.digitalRead(id_pin);
+               break;
+      case 2: chip31.digitalRead(id_pin);
+               break;
+      case 3: chip32.digitalRead(id_pin);
+         break;    
+    
+        default:
+         break;    
+    }
+    break;
+    default:
+         break;
+  }
+}
+
+
+S1=2=3=123
+S1=2=3=355

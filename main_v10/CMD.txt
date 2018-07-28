@@ -1,0 +1,72 @@
+S1„
+R1ƒ
+C1t
+S2…
+S3†
+S9Œ
+S20µ
+R20´
+S512ë
+R512ê
+C512Û
+
+
+      /*SET PORT*/
+      String var_= inputString.substring(0,1);;
+      if (var_ == "S")
+      {/*
+        inputString = inputString.substring(1, inputString.length() - 2); //lay pin ,xoa bcc \n in cmd
+        unsigned int data_in = inputString.toInt(); // string to int
+        setport(data_in); //setport len HIGH, OUTPUT MODES
+        Serial.write("OK=215\n");*/
+      }
+      /*CLEAR PORT*/
+      else if (var_ == "C")
+      {/*
+        inputString = inputString.substring(1, inputString.length() - 2); //lay pin ,xoa bcc \n in cmd
+        unsigned int data_in = inputString.toInt(); // string to int
+        clearport(data_in); //setport len HIGH, OUTPUT MODE
+        Serial.write("OK=215\n");*/
+      }
+      /*READ PORT*/
+      else if (var_ == "R")
+      {
+        /*inputString = inputString.substring(1, inputString.length() - 2); //lay pin ,xoa bcc \n in cmd
+        unsigned int data_in = inputString.toInt(); // string to int*/
+        /*if(readport(data_in)) Serial.write("OK:1=322\n");
+        else Serial.write("OK:0=321\n"); */
+      }
+      //"FIND"
+      else if (inputString.substring(0, 4) == "FIND")
+      {
+        SEARCH_ENABLE();    // Set pin search high level
+        scandata();//scan tat ca PORT,luu vao data[]
+        sr = check();
+        if (sr == "") {
+          Serial.println(bcc_calculate("SEARCH:="));
+        }
+        else {
+          Serial.println(bcc_calculate("SEARCH:" + sr + "="));
+        }
+        SEARCH_DISABLE();   // Setpin search low level
+      }
+      // "TAPEOUT"
+      else if (inputString.substring(0, 7) == "TAPEOUT")
+      {
+        Serial.print(bcc_calculate("OK=") + '\n');
+        TAPE_OUTPUT();
+      }
+      //"BUZZER1"
+      else if (inputString.substring(0, 7) == "BUZZER1")
+      {
+        //Serial.println("Buzzer Out");
+        Serial.print(bcc_calculate("OK=") + '\n');
+        BUZZER_OUT1();
+      }
+      //"BUZZER3"
+      else if (inputString.substring(0, 7) == "BUZZER3")
+      {
+        //Serial.println("Buzzer Out");
+        Serial.print(bcc_calculate("OK=") + '\n');
+        BUZZER_OUT3();
+      }
